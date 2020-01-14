@@ -179,6 +179,31 @@
                     <goals>deploy</goals>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>de.perdian.maven.plugins</groupId>
+                <artifactId>macosappbundler-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <plist>
+                        <JVMMainClassName>org.openbase.bco.registry.editor.RegistryEditorLauncher</JVMMainClassName>
+                        <JVMVersion>11+</JVMVersion>
+                    </plist>
+                    <jdk>
+                        <include>true</include>
+                    </jdk>
+                    <dmg>
+                        <generate>true</generate>
+                    </dmg>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
